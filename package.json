@@ -1,0 +1,25 @@
+{
+  "name": "minesweeper",
+  "version": "1.0.0",
+  "description": "Minesweeper game generator",
+  "main": "minesweeper.js",
+  "devDependencies": {
+    "mocha": "2.4.x"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wmora/minesweeper.git"
+  },
+  "keywords": [
+    "minesweeper"
+  ],
+  "author": "William Mora",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wmora/minesweeper/issues"
+  },
+  "homepage": "https://github.com/wmora/minesweeper"
+}
