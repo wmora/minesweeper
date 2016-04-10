@@ -79,7 +79,7 @@ function createGrid(width, height, mines) {
 				}
 
 				_.each(squaresToCheckForMines, function(it) { if (typeof it !== "undefined" && it.mined === true) { minesAround++;} }); 
-				
+
 				grid[i][j] = { mined: false, mines_around: minesAround};
 			}
 		}
@@ -95,9 +95,7 @@ function createSquaresList(width, height, mines) {
 		squares[i] = { mined: true };
 	}
 
-	squares = _.shuffle(squares);
-
-	return squares;
+	return _.shuffle(squares);
 }
 
 exports.createGame = createGame;
