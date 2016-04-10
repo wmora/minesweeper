@@ -3,12 +3,21 @@
 var _ = require("underscore");
 var collectionUtils = require("./collection_utils.js");
 
-var createGame = function(width, height, mines) {
+/**
+ *	Creates a game of minesweeper
+ *
+ *	@param {int} width - grid width. Must be a value between 8 and 30
+ *	@param {int} height - grid height. Must be a value between 8 and 24
+ *	@param {int} mines - number of mines. Must be a value between 1 and (width - 1)*(height - 1)
+ * 	@param {int} x - x coordinate of the first user input. This is needed to guarantee that the first move will not be a mine
+ * 	@param {int} y - y coordinate of the first user input. This is needed to guarantee that the first move will not be a mine
+ */
+var createGame = function(width, height, mines, x, y) {
 	validateWidth(width);
 	validateHeight(height);	
 	validateMines(mines, width, height);
 
-	return createGrid(width, height, mines);
+	return createGrid(width, height, mines, x, y);
 }
 
 function validateWidth(width) {
@@ -38,10 +47,13 @@ function validateMines(mines, width, height) {
 	}
 }
 
-function createGrid(width, height, mines) {
-	var squares = createSquaresList(width, height, mines);
-
-	var grid = collectionUtils.listToGrid(squares, width, height);
+function createGrid(width, height, mines, x, y) {	
+	var grid;
+	
+	do {
+		var squares = createSquaresList(width, height, mines);
+		grid = collectionUtils.listToGrid(squares, width, height);
+	} while (typeof grid[x][y] !== "undefined" && grid[x][y].mined === true);
 
 	for (var i = 0; i < grid.length; i++) {
 		for (var j = 0; j < grid[i].length; j++) {
