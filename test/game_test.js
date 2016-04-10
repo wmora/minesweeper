@@ -40,6 +40,25 @@ describe('Minesweeper', function() {
 				done();
 			});
 		});
+
+
+		describe('mines', function() {
+			it('must be at least 1', function(done) {
+				should(minesweeper.createGame.bind(null, 8, 8, 0)).throw(RangeError);
+				should(minesweeper.createGame.bind(null, 8, 8, 1)).not.throw();
+				done();
+			});
+			it('must be at most (width-1)(height-1)', function(done) {
+				// An 8x8 grid can have a maximum of 49 (7*7)
+				should(minesweeper.createGame.bind(null, 8, 8, 50)).throw(RangeError);
+				should(minesweeper.createGame.bind(null, 8, 8, 49)).not.throw();
+				done();
+			});
+			it('cannot be undefined', function(done) {
+				should(minesweeper.createGame.bind(null, 8, 8, null)).throw(/^mines/);
+				done();
+			});
+		});
 		
 	});
 });
