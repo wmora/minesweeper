@@ -4,7 +4,8 @@
   "description": "Minesweeper game generator",
   "main": "minesweeper.js",
   "devDependencies": {
-    "mocha": "2.4.x"
+    "mocha": "2.4.x",
+    "should": "*"
   },
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha"
