@@ -24,13 +24,13 @@ describe('Minesweeper', function() {
 		});
 		
 		describe('height', function() {
-			it('has a maximum of 24 squares vertically', function(done) {
+			it('has a maximum of 24 squares', function(done) {
 				should(minesweeper.createGame.bind(null, 30, 25, 1)).throw(RangeError);
 				should(minesweeper.createGame.bind(null, 30, 24, 1)).not.throw();
 				done();
 			});
 			
-			it('has a minimum of 8 squares vertically', function(done) {
+			it('has a minimum of 8 squares', function(done) {
 				should(minesweeper.createGame.bind(null, 9, 7, 1)).throw(RangeError);
 				should(minesweeper.createGame.bind(null, 8, 8, 1)).not.throw();
 				done();
