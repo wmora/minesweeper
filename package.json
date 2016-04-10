@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Minesweeper game generator",
   "main": "minesweeper.js",
+  "dependencies": {
+    "underscore": "*"
+  },
   "devDependencies": {
     "mocha": "2.4.x",
     "should": "*"
